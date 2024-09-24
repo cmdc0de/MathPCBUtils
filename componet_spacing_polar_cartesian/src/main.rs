@@ -23,7 +23,7 @@ fn main() {
     pretty_env_logger::init();
     let mut args = CmdArgs::parse();
     if args.radius == None && args.diameter == None {
-        println!("fail");
+        eprintln!("must provide either radius or diameter");
         return;
     } else if args.radius == None {
         args.radius = Some(args.diameter.unwrap()/2.0);
