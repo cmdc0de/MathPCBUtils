@@ -13,10 +13,10 @@ struct CmdArgs {
     diameter: Option<f32>,
 
     #[arg(short, long)]
-    xstart: f32,
+    xcenter: f32,
 
     #[arg(short, long)]
-    ystart: f32,
+    ycenter: f32,
 }
 
 fn main() {
@@ -37,8 +37,8 @@ fn main() {
     for i in 0..args.items {
         let angle = (2.0 * 3.14 * (i as f32)/args.items as f32) + staring_angle;
         println!("Degree: {}", angle*180.0/3.14);
-        let px = args.xstart + args.radius.unwrap() * angle.cos();
-        let py = args.ystart + args.radius.unwrap() * angle.sin();
+        let px = args.xcenter + args.radius.unwrap() * angle.cos();
+        let py = args.ycenter + args.radius.unwrap() * angle.sin();
         println!("# {}, px: {}  py: {}", i, px, py);
     }
 }
